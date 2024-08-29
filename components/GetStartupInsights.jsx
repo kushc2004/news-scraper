@@ -35,7 +35,7 @@ const GetStartupInsightsModal = ({ isOpen }) => {
 
     try {
       const response = await axios.get('/api/fetch-news', {
-        params: { q: `category startups` }
+        params: { q: `startups` }
       });
       const filteredNews = filterNewsByLastYear(response.data);
       setNews(filteredNews);
@@ -104,7 +104,7 @@ const GetStartupInsightsModal = ({ isOpen }) => {
               {modalTitle}
             </h2>
           </div>
-          <div className="px-8 py-6 flex flex-col h-full space-y-6" style={{backgroundColor: "0f101470"}}>
+          <div className="px-8 py-6 flex flex-col h-full space-y-6" style={{backgroundColor: "17173282"}}>
             <div className="relative mb-6">
               <input
                 type="text"
