@@ -79,10 +79,10 @@ const GetStartupInsightsModal = ({ isOpen }) => {
   };
 
   return (
-    <>
+<>
   {/* Use Next.js Head component to manage the <head> content */}
   <Head>
-  <link
+    <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
       integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMareMFjc5p8s5CPR8G3q2m0IMzYKKzVvFoky62"
@@ -90,78 +90,73 @@ const GetStartupInsightsModal = ({ isOpen }) => {
     />
   </Head>
   {isOpen && (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-70 p-4">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-40 backdrop-blur-sm p-6">
       <motion.div
-        initial={{ opacity: 0, scale: 0.5 }}
+        initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
-        exit={{ opacity: 0, scale: 0.5 }}
-        className="bg-white rounded-lg shadow-2xl w-full max-w-4xl mx-auto h-4/5 md:h-3/4 overflow-hidden"
+        exit={{ opacity: 0, scale: 0.9 }}
+        className="backdrop-filter backdrop-blur border border-white/30 rounded-3xl shadow-2xl w-full max-w-4xl mx-auto h-4/5 md:h-3/4 overflow-hidden"
+        style="background-color: #b9beeeb8;"
       >
         <div className="relative flex flex-col h-full">
-          <div className="bg-blue-900 p-4">
-            <h2 className="text-2xl md:text-3xl font-bold text-white">
+          <div className="bg-gradient-to-r from-blue-700 to-black p-6 rounded-t-3xl shadow-md">
+            <h2 className="text-3xl font-extrabold text-white">
               {modalTitle}
             </h2>
           </div>
-          <div className="px-6 py-4 flex flex-col h-full">
-            <div className="relative mb-4">
+          <div className="px-8 py-6 flex flex-col h-full space-y-6" style="background-color: #0f101470;">
+            <div className="relative mb-6">
               <input
                 type="text"
-                placeholder="Enter startup name"
+                placeholder="Search for startup insights..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
-                className="w-full p-3 border border-gray-300 text-black rounded-lg shadow-sm pr-12 focus:border-blue-600 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+                className="w-full p-4 bg-white/70 border border-gray-300 text-black rounded-full shadow-lg pr-14 focus:outline-none focus:border-blue-500 focus:ring focus:ring-blue-300 transition-transform duration-300 ease-in-out"
               />
-              {/* <button
+              <button
                 onClick={handleSearch}
-                className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-yellow-500 text-black p-3 rounded-lg hover:bg-yellow-600 focus:outline-none shadow-md"
+                className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-gradient-to-r from-yellow-400 to-orange-500 p-3 rounded-full hover:scale-110 transition-transform duration-300 ease-in-out shadow-xl"
               >
-                <i className="fas fa-search"></i>
-              </button> */}
-
-                <button
-                onClick={handleSearch}
-                className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-yellow-500 text-black p-2 rounded-lg hover:bg-yellow-600 focus:outline-none shadow-md"
-                >
                 <img
-                    src="/assets/images/search.png" // Ensure the path is correct; use `/public` folder path if inside `public`
-                    alt="Search"
-                    className="h-5 w-5" // Adjust size as needed
+                  src="/assets/images/search.png" // Ensure the path is correct; use `/public` folder path if inside `public`
+                  alt="Search"
+                  className="h-5 w-5"
                 />
-                </button>
+              </button>
             </div>
-            <div className="mb-4 flex items-center justify-between">
-              <label className="font-semibold text-gray-700">Sort by:</label>
+            <div className="flex items-center justify-between mb-4">
+              <label className="font-semibold text-white text-lg">Sort by:</label>
               <select
                 value={sortOrder}
                 onChange={(e) => handleSortOrderChange(e.target.value)}
-                className="p-2 border text-black rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="p-2 bg-white/70 border border-gray-300 text-black rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300"
               >
                 <option value="latest">Latest First</option>
                 <option value="oldest">Oldest First</option>
               </select>
             </div>
-            <div className="flex-1 overflow-y-auto px-2 md:px-4 space-y-4 pb-16 pt-4 mb-6">
+            <div className="flex-1 overflow-y-auto px-4 space-y-6 pb-8">
               {loading ? (
-                <p className="text-center text-blue-900">Loading...</p>
+                <p className="text-center text-white font-bold text-lg animate-pulse">Loading...</p>
               ) : displayedNews.length > 0 ? (
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {displayedNews.map((article, index) => (
-                    <div
+                    <motion.div
                       key={index}
-                      className="p-4 bg-white rounded-lg shadow-lg hover:shadow-2xl transform transition-transform duration-300 ease-in-out"
+                      whileHover={{ scale: 1.05 }}
+                      className="p-6 bg-white/70 bg-opacity-80 border border-gray-200 rounded-2xl shadow-xl hover:shadow-2xl transform transition-all duration-300 ease-in-out"
                     >
                       <a
-                        href={article.link} // Assuming there's a link to the full article
+                        href={article.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-blue-900 font-semibold text-lg hover:underline"
+                        className="text-blue-800 font-semibold text-lg hover:underline hover:text-blue-600"
                       >
                         {article.title}
                       </a>
-                      <p className="text-gray-500 text-sm">{new Date(article.date).toLocaleDateString()}</p>
-                      <ul className="mt-2 list-disc pl-4 text-gray-700 space-y-1">
+                      <p className="text-gray-600 text-sm mt-2">{new Date(article.date).toLocaleDateString()}</p>
+                      <ul className="mt-4 list-disc pl-5 text-gray-700 space-y-2">
                         <li>{article.summary[0]}</li>
                       </ul>
                       {article.summary.length > 1 && !showMore[index] && (
@@ -172,14 +167,14 @@ const GetStartupInsightsModal = ({ isOpen }) => {
                               [index]: true,
                             }))
                           }
-                          className="text-blue-700 hover:text-blue-900 text-sm mt-2"
+                          className="text-blue-600 hover:text-blue-800 text-sm mt-4 font-medium"
                         >
                           Read More
                         </button>
                       )}
                       {showMore[index] && (
-                        <div className="mt-2">
-                          <ul className="list-disc pl-4 text-gray-700 space-y-1">
+                        <div className="mt-4">
+                          <ul className="list-disc pl-5 text-gray-700 space-y-2">
                             {article.summary.slice(1).map((point, idx) => (
                               <li key={idx}>{point}</li>
                             ))}
@@ -191,17 +186,17 @@ const GetStartupInsightsModal = ({ isOpen }) => {
                                 [index]: false,
                               }))
                             }
-                            className="text-blue-700 hover:text-blue-900 text-sm mt-2"
+                            className="text-blue-600 hover:text-blue-800 text-sm mt-4 font-medium"
                           >
                             Show Less
                           </button>
                         </div>
                       )}
-                    </div>
+                    </motion.div>
                   ))}
                 </div>
               ) : searchInitiated ? (
-                <p className="text-center text-red-600">Currently, there is no media presence of {searchQuery}</p>
+                <p className="text-center text-red-500 font-semibold">Currently, there is no media presence of {searchQuery}</p>
               ) : null}
             </div>
           </div>
@@ -210,6 +205,8 @@ const GetStartupInsightsModal = ({ isOpen }) => {
     </div>
   )}
 </>
+
+
 
   );
 };
