@@ -96,7 +96,7 @@ const GetStartupInsightsModal = ({ isOpen }) => {
         animate={{ opacity: 1, scale: 1 }}
         exit={{ opacity: 0, scale: 0.9 }}
         className="backdrop-filter backdrop-blur border border-white/30 rounded-3xl shadow-2xl w-full max-w-4xl mx-auto h-4/5 md:h-3/4 overflow-hidden"
-        style={{ backgroundColor: "rgba(185, 190, 238, 0.72)" }}  // Light background with some transparency
+        style={{ backgroundColor: "rgba(255, 255, 255, 0.7)" }}  // Light background with some transparency
       >
         <div className="relative flex flex-col h-full">
           <div className="bg-gradient-to-r from-blue-700 to-black p-6 rounded-t-3xl shadow-md">
@@ -104,7 +104,7 @@ const GetStartupInsightsModal = ({ isOpen }) => {
               {modalTitle}
             </h2>
           </div>
-          <div className="px-8 py-6 flex flex-col h-full space-y-6" style={{ backgroundColor: "rgba(173, 171, 196, 0.5)" }}> {/* Slight transparency for background */}
+          <div className="px-8 py-6 flex flex-col h-full space-y-6"> {/* Slight transparency for background */}
             <div className="relative mb-6">
               <input
                 type="text"
