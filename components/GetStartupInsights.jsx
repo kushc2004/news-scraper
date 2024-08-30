@@ -95,16 +95,16 @@ const GetStartupInsightsModal = ({ isOpen }) => {
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         exit={{ opacity: 0, scale: 0.9 }}
-        className="backdrop-filter backdrop-blur border border-white/30 rounded-3xl shadow-2xl w-full max-w-4xl mx-auto h-4/5 md:h-3/4 overflow-hidden"
-        style={{ backgroundColor: "rgba(255, 255, 255, 0.7)" }}  // Light background with some transparency
+        className="backdrop-filter backdrop-blur-lg border border-white/30 rounded-3xl shadow-2xl w-full max-w-4xl mx-auto h-4/5 md:h-3/4 overflow-hidden"
+        style={{ backgroundColor: "rgba(255, 255, 255, 0.08)" }} // Adjusted for better transparency
       >
         <div className="relative flex flex-col h-full">
-          <div className="bg-gradient-to-r from-blue-700 to-black p-6 rounded-t-3xl shadow-md">
+          <div className="bg-gradient-to-r from-blue-700 to-blue-900 p-6 rounded-t-3xl shadow-md">
             <h2 className="text-3xl font-extrabold text-white">
               {modalTitle}
             </h2>
           </div>
-          <div className="px-8 py-6 flex flex-col h-full space-y-6"> {/* Slight transparency for background */}
+          <div className="px-8 py-6 flex flex-col h-full space-y-6" style={{ backgroundColor: "rgba(0, 0, 0, 0.6)" }}> {/* Slight transparency to match the background */}
             <div className="relative mb-6">
               <input
                 type="text"
@@ -112,14 +112,14 @@ const GetStartupInsightsModal = ({ isOpen }) => {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
-                className="w-full p-4 bg-white/70 text-gray-800 border border-gray-300 rounded-full shadow-lg pr-14 focus:outline-none focus:border-blue-500 focus:ring focus:ring-blue-300 transition-transform duration-300 ease-in-out"
+                className="w-full p-4 bg-white/80 text-gray-900 border border-gray-300 rounded-full shadow-lg pr-14 focus:outline-none focus:border-blue-500 focus:ring focus:ring-blue-300 transition-transform duration-300 ease-in-out"
               />
               <button
                 onClick={handleSearch}
                 className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-gradient-to-r from-yellow-400 to-orange-500 p-3 rounded-full hover:scale-110 transition-transform duration-300 ease-in-out shadow-xl"
               >
                 <img
-                  src="/assets/images/search.png" // Ensure the path is correct; use `/public` folder path if inside `public`
+                  src="/assets/images/search.png"
                   alt="Search"
                   className="h-5 w-5"
                 />
@@ -130,7 +130,7 @@ const GetStartupInsightsModal = ({ isOpen }) => {
               <select
                 value={sortOrder}
                 onChange={(e) => handleSortOrderChange(e.target.value)}
-                className="p-2 bg-white/70 text-gray-800 border border-gray-300 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300"
+                className="p-2 bg-white/70 text-gray-900 border border-gray-300 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300"
               >
                 <option value="latest">Latest First</option>
                 <option value="oldest">Oldest First</option>
@@ -145,7 +145,7 @@ const GetStartupInsightsModal = ({ isOpen }) => {
                     <motion.div
                       key={index}
                       whileHover={{ scale: 1.05 }}
-                      className="p-6 bg-white/60 bg-opacity-60 border border-gray-200 rounded-2xl shadow-xl hover:shadow-2xl transform transition-all duration-300 ease-in-out"
+                      className="p-6 bg-white/80 bg-opacity-80 border border-gray-200 rounded-2xl shadow-xl hover:shadow-2xl transform transition-all duration-300 ease-in-out"
                     >
                       <a
                         href={article.link}
@@ -205,6 +205,7 @@ const GetStartupInsightsModal = ({ isOpen }) => {
     </div>
   )}
 </>
+
 
 
 
