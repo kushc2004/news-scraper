@@ -131,12 +131,6 @@ const GetStartupInsightsModal1 = ({ isOpen}) => {
             style={{ backgroundColor: "rgba(255, 255, 255, 0.08)" }} // Adjusted for better transparency
           >
             <div className="relative flex flex-col h-full">
-              <button
-                onClick={onClose}
-                className="absolute top-2 right-2 p-2 bg-gray-200 rounded-lg shadow z-10 hover:bg-gray-300"
-              >
-                &times;
-              </button>
               <div className="bg-gradient-to-r from-blue-700 to-blue-900 p-6 rounded-t-3xl shadow-md">
                 <h2 className="text-3xl font-extrabold text-white">
                   {modalTitle}
