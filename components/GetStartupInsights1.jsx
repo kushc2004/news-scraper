@@ -137,7 +137,7 @@ const GetStartupInsightsModal1 = ({ isOpen}) => {
                 </h2>
               </div>
               <div className="px-8 py-6 flex flex-col h-full space-y-6" style={{ backgroundColor: "rgba(0, 0, 0, 0.6)" }}> {/* Slight transparency to match the background */}
-                <div className="relative mb-6">
+                <div className="relative">
                   <input
                     type="text"
                     placeholder="Search for startup insights..."
@@ -176,7 +176,7 @@ const GetStartupInsightsModal1 = ({ isOpen}) => {
                     </div>
                   )}
                   <div className="flex items-center justify-end">
-                    <label className="font-semibold text-white text-lg">Sort by:</label>
+                    <label className="mr-2 font-semibold text-white text-lg">Sort by:</label>
                     <select
                       value={sortOrder}
                       onChange={(e) => handleSortOrderChange(e.target.value)}
