@@ -10,7 +10,7 @@ export default function Home() {
     <div className=''>
       <div className='container mt-20'>
       </div>
-      <GetStartupInsightsModal
+      <GetStartupInsightsModal1
       isOpen={true}
       />
     </div>

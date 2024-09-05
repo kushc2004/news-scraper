@@ -5,7 +5,7 @@ import Head from "next/head"; // Import Head from next/head
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { fetchLatestInsightsData } from "@/components/latest-insights" ; // Adjust the import path
 
-const GetStartupInsightsModal1 = ({ isOpen, onClose }) => {
+const GetStartupInsightsModal1 = ({ isOpen}) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [news, setNews] = useState([]);
   const [displayedNews, setDisplayedNews] = useState([]);
